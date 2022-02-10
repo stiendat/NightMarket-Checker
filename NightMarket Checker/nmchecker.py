@@ -10,9 +10,9 @@ import cloudscraper
 import sqlite3
 
 # CONFIG
-ENABLE_NIGHTMARKET = False
+ENABLE_NIGHTMARKET = True
 OUTPUT_NIGHTMARKET_FILENAME = 'night_market.csv'
-ENABLE_CURRENT_OFFER = True
+ENABLE_CURRENT_OFFER = False
 OUTPUT_CURRENT_OFFER_FILENAME = 'current_offers.csv'
 ENABLE_CACHE = False
 
@@ -274,7 +274,7 @@ def main():
                 price.insert(0, acc[0])
                 all_current_offers.append(price)
             if ENABLE_NIGHTMARKET:
-                price = getNight(puuid[0], puuid[1])
+                price = getNight(puuid[0], puuid[1], database)
                 price.insert(0, acc[0])
                 all_night_market.append(price)
 
